@@ -15,8 +15,7 @@ export async function authenticate(
     await signIn('credentials', formData);
   } catch (error) {
     if (error instanceof AuthError) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-      //@ts-ignore
+      // @ts-expect-error
       switch (error.type) {
         case 'CredentialsSignin':
           return 'Invalid credentials.';
